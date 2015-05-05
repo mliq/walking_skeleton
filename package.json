@@ -1,0 +1,15 @@
+{
+  "name": "walking_skeleton",
+  "version": "1.0.0",
+  "description": "My first MEAN application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "author": "Michael Liquori",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
