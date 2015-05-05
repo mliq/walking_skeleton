@@ -11,6 +11,24 @@ mongoose.connect('mongodb://localhost/basic_walking_skeleton');
 // declaring a basic model for our 'Cat' data that we will be bringing into the database, Cats will just have a name for now.
 var Cat = mongoose.model('Cat', {name:String});
 
+
+router.post('/add', function(request, response, next){
+    var kitty = new Cat({name: request.body.name});
+    kitty.save(function(err){
+        if(err) console.log('meow %s', err);
+        response.send(kitty.toJSON());
+        next();
+    });
+});
+
+router.get('/cats', function(request, response, next){
+    return Cat.find({}).exec(function(err, cats){
+        if(err) throw new Error(err);
+        response.send(JSON.stringify(cats));
+        next();
+    });
+});
+
 // Set up a handler for 'get' request to the home 'route'
 // Then call an anonymous function that takes in two arguments, the request object (incoming), and the response object (outgoing). In the function body, we attach “Hello!” to the response and send it back.
 // Set up a handler for 'get' request to the 'router' ?
@@ -32,6 +50,7 @@ router.get( '/*', function(req, res, next) {
     // Next is there for us to augment the response in additional ways if we decided that is what we wanted to do.
     //next();
 });
+
 
 // issue an export order to the router to be a module
 // This makes it available to us throughout the rest of the application.

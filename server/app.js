@@ -2,6 +2,11 @@
 var express = require('express');
 // create 'instance' of Express called 'app'
 var app = express();
+// Body-parser load
+var bodyParser = require('body-parser');
+
+// Allows us to use BodyParser
+app.use(bodyParser.json());
 
 // Load the index.js
 var index = require('./routes/index');
@@ -20,3 +25,7 @@ var server = app.listen(3000, function() {
     var port = server.address().port;
     console.log('Listening on port: ', port);
 });
+
+
+//app.use('/', index);
+module.exports = app;
