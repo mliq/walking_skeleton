@@ -17,7 +17,8 @@ var Cat = mongoose.model('Cat', {name:String});
 // Routers will help us manage how incoming requests are handled.
 // Then call an anonymous function that takes in three arguments, the request object (incoming), and the response object (outgoing), and then next has to do with how Express handles 'middleware'.
 // After response sends back 'Hello' we send an additional next() command, also Express
-router.get( '/', function(req, res, next) {
+// /* means any file requested will trigger this once, including all .js in an html file.
+router.get( '/*', function(req, res, next) {
     console.log("Here is a console log");
     // Display text in HTML
     //res.send('Hello World!');
