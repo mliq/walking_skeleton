@@ -22,6 +22,7 @@ module.exports = function(grunt) {
                 // Current working directory
                 cwd: "node_modules/",
                 // Copies this info and writes it to the 'dest' without uglifying (since it's already minified!)
+                // And, CSS cannot be minified because it would affect the html...
                 src: [
                     "angular/angular.min.js",
                     "angular/angular.min.js.map",
@@ -29,7 +30,8 @@ module.exports = function(grunt) {
                     "bootstrap/dist/css/bootstrap.min.css",
                     "bootstrap/dist/css/bootstrap.css.map",
                     "bootstrap/dist/js/bootstrap.min.js",
-                    "jquery/dist/jquery.min.js"
+                    "jquery/dist/jquery.min.js",
+                    "../client/stylesheet.css"
                 ],
                 "dest": "server/public/vendor/"
             }

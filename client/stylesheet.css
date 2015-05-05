@@ -1,0 +1,12 @@
+.jumbotron {
+    margin: 20px 0 0;
+}
+
+.kitties {
+    background-color: lightblue;
+    border-radius: 20px;
+    padding: 2px;
+    margin: 2px auto;
+    width: 10%;
+    /*display: inline;*/
+}
